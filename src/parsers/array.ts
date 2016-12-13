@@ -1,5 +1,5 @@
-import {isNil} from 'ramda';
 import {ParserError, ParseFn, ParserInput} from './index';
+import {isNil} from '../util';
 
 export const pArray = <T>(itemParser: ParseFn<T>): ParseFn<T[]> =>
   (x: ParserInput): T[] => {

@@ -1,5 +1,5 @@
-import {isNil} from 'ramda';
 import {ParserError, ParserInput, ParseFn} from './index';
+import {isNil} from '../util';
 
 export const pString: ParseFn<string> = (x: ParserInput): string => {
   if (isNil(x)) {

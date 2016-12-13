@@ -4,7 +4,7 @@
   "description": "Describe your JSON data with spicery parsers and bring runtime typesafety to your TypeScript application.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register test/**/*.ts",
+    "test": "mocha --require ts-node/register test/*.ts test/**/*.ts",
     "test:watch": "mocha --require ts-node/register --watch --recursive test/*.ts",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "build": "tsc",
@@ -30,10 +30,8 @@
   "devDependencies": {
     "@types/chai": "^3.4.34",
     "@types/mocha": "^2.2.33",
-    "@types/ramda": "^0.0.2",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "ramda": "^0.22.1",
     "ts-node": "^1.7.2",
     "tslint": "^4.0.2",
     "typedoc": "^0.5.1",
