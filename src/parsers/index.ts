@@ -8,3 +8,7 @@ export class ParserError extends Error {
     super(`Expected ${expected} but found ${found}`);
   }
 }
+
+export function parse<T>(input: ParserInput, parser: (x: ParserInput) => T): T {
+  return parser(input);
+}
