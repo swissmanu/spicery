@@ -1,3 +1,5 @@
+export type ParserInput = any;
+
 export class ParserError extends Error {
   constructor(
     public readonly expected: string,
