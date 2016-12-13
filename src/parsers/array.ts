@@ -1,8 +1,8 @@
 import {isNil} from 'ramda';
-import {ParserError, ParserInput} from './index';
+import {ParserError, ParseFn, ParserInput} from './index';
 
-export function pArray<T>(itemParser: (x: ParserInput) => T): (x: ParserInput) => T[] {
-  return (x: any) => {
+export const pArray = <T>(itemParser: ParseFn<T>): ParseFn<T[]> =>
+  (x: ParserInput): T[] => {
     if (isNil(x)) {
       throw new ParserError('Array', x);
     }
@@ -12,4 +12,3 @@ export function pArray<T>(itemParser: (x: ParserInput) => T): (x: ParserInput) =
     }
     throw new ParserError('Array', typeof x);
   };
-};

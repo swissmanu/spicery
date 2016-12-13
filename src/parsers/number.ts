@@ -1,7 +1,7 @@
 import {isNil} from 'ramda';
-import {ParserError, ParserInput} from './index';
+import {ParserError, ParserInput, ParseFn} from './index';
 
-export const pNumber = (x: ParserInput) => {
+export const pNumber: ParseFn<number> = (x: ParserInput): number => {
   if (isNil(x)) {
     throw new ParserError('number', x);
   }

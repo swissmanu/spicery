@@ -1,4 +1,5 @@
 export type ParserInput = any;
+export type ParseFn<T> = (x: ParserInput) => T;
 
 export class ParserError extends Error {
   constructor(
@@ -9,6 +10,6 @@ export class ParserError extends Error {
   }
 }
 
-export function parse<T>(input: ParserInput, parser: (x: ParserInput) => T): T {
+export function parse<T>(input: ParserInput, parser: ParseFn<T>): T {
   return parser(input);
 }

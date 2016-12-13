@@ -1,7 +1,7 @@
 import {isNil} from 'ramda';
-import {ParserError, ParserInput} from './index';
+import {ParserError, ParserInput, ParseFn} from './index';
 
-export const pBoolean = (x: ParserInput) => {
+export const pBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   if (isNil(x)) {
     throw new ParserError('boolean', x);
   }
