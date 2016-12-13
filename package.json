@@ -1,0 +1,26 @@
+{
+  "name": "spicery",
+  "version": "0.0.1",
+  "description": "Describe your JSON data with spicery parsers and bring runtime typesafety to your TypeScript application.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swissmanu/spicery.git"
+  },
+  "keywords": [
+    "typescript",
+    "json",
+    "parser",
+    "typesafety",
+    "api"
+  ],
+  "author": "Manuel Alabor <manuel@alabor.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swissmanu/spicery/issues"
+  },
+  "homepage": "https://github.com/swissmanu/spicery#readme"
+}
