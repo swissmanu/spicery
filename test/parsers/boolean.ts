@@ -1,35 +1,35 @@
 import {expect} from 'chai';
-import {pBoolean} from '../../src/parsers/boolean';
+import {aBoolean} from '../../src/parsers/boolean';
 import {ParserError} from '../../src/parsers';
 
 describe('Parser', () => {
-  describe('pBoolean', () => {
+  describe('aBoolean', () => {
     it('should return type boolean given a boolean', () => {
-      expect(pBoolean(true)).to.be.a('boolean');
+      expect(aBoolean(true)).to.be.a('boolean');
     });
 
     it('should return given boolean', () => {
-      expect(pBoolean(false)).is.eql(false);
+      expect(aBoolean(false)).is.eql(false);
     });
 
     it('should throw a ParserError when given null', () => {
-      expect(() => pBoolean(null)).to.throw(ParserError);
+      expect(() => aBoolean(null)).to.throw(ParserError);
     });
 
     it('should throw a ParserError when given undefined', () => {
-      expect(() => pBoolean(undefined)).to.throw(ParserError);
+      expect(() => aBoolean(undefined)).to.throw(ParserError);
     });
 
     it('should throw a ParserError when given a number', () => {
-      expect(() => pBoolean(1)).to.throw(ParserError);
+      expect(() => aBoolean(1)).to.throw(ParserError);
     });
 
     it('should throw a ParserError when given a string', () => {
-      expect(() => pBoolean('test')).to.throw(ParserError);
+      expect(() => aBoolean('test')).to.throw(ParserError);
     });
 
     it('should throw a ParserError when given an object', () => {
-      expect(() => pBoolean({})).to.throw(ParserError);
+      expect(() => aBoolean({})).to.throw(ParserError);
     });
   });
 });

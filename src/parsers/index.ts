@@ -24,6 +24,6 @@ export class ParserError extends Error {
 /**
  * A quick way to apply a `ParseFn` to a given `ParseInput`.
  */
-export function parse<T>(input: ParserInput, parser: ParseFn<T>): T {
+export function parse<T>(parser: ParseFn<T>, input: ParserInput): T {
   return parser(input);
 }

@@ -1,7 +1,7 @@
 import {ParserError, ParserInput, ParseFn} from './index';
 import {isNil} from '../util';
 
-export const pNumber: ParseFn<number> = (x: ParserInput): number => {
+export const aNumber: ParseFn<number> = (x: ParserInput): number => {
   if (isNil(x)) {
     throw new ParserError('number', x);
   }

@@ -1,7 +1,7 @@
 import {ParserError, ParseFn, ParserInput} from './index';
 import {isNil} from '../util';
 
-export const usingMap = <T>(map: ParserInput, key: string, valueParser: ParseFn<T>): T => {
+export const fromMap = <T>(map: ParserInput, key: string, valueParser: ParseFn<T>): T => {
   if (isNil(map)) {
     throw new ParserError('Map', map);
   }

@@ -1,7 +1,7 @@
 import {ParserError, ParserInput, ParseFn} from './index';
 import {isNil} from '../util';
 
-export const pBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
+export const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   if (isNil(x)) {
     throw new ParserError('boolean', x);
   }
