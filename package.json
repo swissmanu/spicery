@@ -1,14 +1,16 @@
 {
   "name": "spicery",
   "version": "0.0.1",
-  "description": "Describe your JSON data with spicery parsers and bring runtime typesafety to your TypeScript application.",
+  "description": "Describe untyped data with spicery parsers and bring runtime type safety to your TypeScript application.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/*.ts test/**/*.ts",
     "test:watch": "mocha --require ts-node/register --watch --recursive test/*.ts",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "build": "tsc",
-    "docs": "typedoc --out docs/ ./src"
+    "docs": "typedoc --out docs/ ./src",
+    "example:simple": "ts-node examples/simple.ts",
+    "example:complex": "ts-node examples/complex.ts"
   },
   "repository": {
     "type": "git",
