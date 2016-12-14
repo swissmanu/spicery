@@ -10,7 +10,7 @@ const untypedInformation: any = ['Apples', 'Pears', 'Peaches'];
 
 
 try {
-  const fruits: string[] = parse(anArrayContaining(strings), untypedInformation);
+  const fruits: string[] = parse(anArrayContaining(strings))(untypedInformation);
 
   console.log('Untyped data fulfills parser requirements. Typed result:');
   console.log(fruits);

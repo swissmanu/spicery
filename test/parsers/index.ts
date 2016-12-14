@@ -9,7 +9,7 @@ describe('Parser', () => {
         done();
         return '';
       };
-      parse(parser, 'test');
+      parse(parser)('test');
     });
   });
 });

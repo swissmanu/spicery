@@ -22,8 +22,7 @@ export class ParserError extends Error {
 }
 
 /**
- * A quick way to apply a `ParseFn` to a given `ParseInput`.
+ * Syntactic sugar to lazy invoke a `ParseFn`; Creates a new `ParseFn` with given parser and returns it for later
+ * invocation.
  */
-export function parse<T>(parser: ParseFn<T>, input: ParserInput): T {
-  return parser(input);
-}
+export const parse = <T>(parser: ParseFn<T>): ParseFn<T> => (x) => parser(x);

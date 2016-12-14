@@ -67,7 +67,7 @@ const aDate: ParseFn<Date> = x => new Date(x);  // good enough ;)
 
 // Apply Parser & Process Data:
 try {
-  parse(anArrayContaining(aFriend), untypedInformation)
+  parse(anArrayContaining(aFriend))(untypedInformation)
     .map(f => {
       const likes = f.likes.reduce(
         (p, l) => `${p}${l.name} since ${l.since.toLocaleDateString()}, `, '');
