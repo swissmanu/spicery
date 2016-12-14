@@ -25,10 +25,8 @@ const todos: ParserFn<Todo> = x => ({
 });
 
 // Load Todos and ensure they comply with our Todo type:
-window.fetch('https://jsonplaceholder.typicode.com/todos', {
-  method: 'GET',
-  mode: 'cors'
-}).then(r => parse(anArrayContaining(todos)), r.body)
+window.fetch('https://jsonplaceholder.typicode.com/todos')
+  .then(r => parse(anArrayContaining(todos)), r.body))
 ```
 
 For further examples refer to the `examples/` directory. To execute them locally, clone this repository and run following commands on your command line of choice:
