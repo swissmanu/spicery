@@ -50,14 +50,14 @@ interface Like {
 }
 
 // Parsers for Type Definitions:
-const aFriend: ParseFn<Friend> = (x) => new Friend(
+const friends: ParseFn<Friend> = (x) => new Friend(
   fromMap(x, 'name', aString),
   fromMap(x, 'age', aNumber),
   fromMap(x, 'blocked', aBoolean),
-  fromMap(x, 'likes', anArrayContaining(aLike))
+  fromMap(x, 'likes', anArrayContaining(likes))
 );
 
-const aLike: ParseFn<Like> = (x) => ({
+const likes: ParseFn<Like> = (x) => ({
   name: fromMap(x, 'name', aString),
   since: fromMap(x, 'since', aDate)
 });
@@ -67,7 +67,7 @@ const aDate: ParseFn<Date> = x => new Date(x);  // good enough ;)
 
 // Apply Parser & Process Data:
 try {
-  parse(anArrayContaining(aFriend))(untypedInformation)
+  parse(anArrayContaining(friends))(untypedInformation)
     .map(f => {
       const likes = f.likes.reduce(
         (p, l) => `${p}${l.name} since ${l.since.toLocaleDateString()}, `, '');
