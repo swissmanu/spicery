@@ -11,3 +11,5 @@ export const aNumber: ParseFn<number> = (x: ParserInput): number => {
   }
   throw new ParserError('number', typeof x);
 };
+
+export const numbers = aNumber;

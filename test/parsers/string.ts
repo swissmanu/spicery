@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {aString} from '../../src/parsers/string';
+import {aString, strings} from '../../src/parsers/string';
 import {ParserError} from '../../src/parsers';
 
 describe('Parser', () => {
@@ -30,6 +30,12 @@ describe('Parser', () => {
 
     it('should throw a ParserError when given an object', () => {
       expect(() => aString({})).to.throw(ParserError);
+    });
+  });
+
+  describe('strings', () => {
+    it('should be a synonym for aString', () => {
+      expect(strings).to.be.equal(aString);
     });
   });
 });

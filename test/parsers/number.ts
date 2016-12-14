@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {aNumber} from '../../src/parsers/number';
+import {aNumber, numbers} from '../../src/parsers/number';
 import {ParserError} from '../../src/parsers';
 
 describe('Parser', () => {
@@ -30,6 +30,12 @@ describe('Parser', () => {
 
     it('should throw a ParserError when given an object', () => {
       expect(() => aNumber({})).to.throw(ParserError);
+    });
+  });
+
+  describe('numbers', () => {
+    it('should be a synonym for aNumber', () => {
+      expect(numbers).to.be.equal(aNumber);
     });
   });
 });

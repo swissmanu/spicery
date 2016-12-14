@@ -11,3 +11,5 @@ export const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   }
   throw new ParserError('boolean', typeof x);
 };
+
+export const booleans = aBoolean;

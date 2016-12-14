@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {aBoolean} from '../../src/parsers/boolean';
+import {aBoolean, booleans} from '../../src/parsers/boolean';
 import {ParserError} from '../../src/parsers';
 
 describe('Parser', () => {
@@ -30,6 +30,12 @@ describe('Parser', () => {
 
     it('should throw a ParserError when given an object', () => {
       expect(() => aBoolean({})).to.throw(ParserError);
+    });
+  });
+
+  describe('booleans', () => {
+    it('should be a synonym for aBoolean', () => {
+      expect(booleans).to.be.equal(aBoolean);
     });
   });
 });

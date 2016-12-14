@@ -1,5 +1,5 @@
 import {parse} from '../src/parsers';
-import {aString} from '../src/parsers/string';
+import {strings} from '../src/parsers/string';
 import {anArrayContaining} from '../src/parsers/array';
 
 // Run this example using `npm run example:simple`
@@ -10,7 +10,7 @@ const untypedInformation: any = ['Apples', 'Pears', 'Peaches'];
 
 
 try {
-  const fruits: string[] = parse(anArrayContaining(aString), untypedInformation);
+  const fruits: string[] = parse(anArrayContaining(strings), untypedInformation);
 
   console.log('Untyped data fulfills parser requirements. Typed result:');
   console.log(fruits);

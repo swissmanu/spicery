@@ -11,3 +11,5 @@ export const aString: ParseFn<string> = (x: ParserInput): string => {
   }
   throw new ParserError('string', typeof x);
 };
+
+export const strings = aString;
