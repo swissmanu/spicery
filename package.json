@@ -1,7 +1,7 @@
 {
   "name": "spicery",
   "version": "0.0.1",
-  "description": "Describe JSON/untyped information with spicery parsers to bring runtime type safety to your TypeScript code.",
+  "description": "Runtime type safety for JSON/untyped data.",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register test/*.ts test/**/*.ts",
