@@ -4,6 +4,8 @@
 
 [TypeScript](https://www.typescriptlang.org/) gives you compile-time type safety for your JavaScript code. External data which you get through, for example, XHR calls is only checkable at runtime. `spicery` allows you to handle runtime checks in one place using an easy to use API.
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 ## Examples
 
 ```typescript
@@ -36,3 +38,12 @@ yarn run example:complex
 ```
 
 *Though the first `yarn` command is only used to install any module dependencies once* 🤓
+
+## Contribution
+
+The `master` branch contains the latest stable release.
+Development efforts are integrated with the `develop` branch first. Changes get then merged into `master` as soon as a new release should be published.
+
+When opening a new Pull Request make sure you point them to `develop`. Make use of proper commit messages: `spicery` loves [Commitizen](http://commitizen.github.io/cz-cli/), so take a look there and use `git cz` for the most simple workflow :-)
+
+Thank you for your contribution!
