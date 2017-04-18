@@ -6,6 +6,12 @@
         "noUnusedParameters": true,
         "noUnusedLocals": true,
         "sourceMap": false,
-        "outDir": "build/"
-    }
+        "outDir": "build/",
+        "declaration": true
+    },
+    "exclude": [
+        "node_modules",
+        "examples",
+        "test"
+    ]
 }

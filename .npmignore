@@ -1,0 +1,10 @@
+.idea
+examples
+src
+test
+.editorconfig
+.gitignore
+.travis.yml
+spicery.iml
+tsconfig.json
+tslint.json
