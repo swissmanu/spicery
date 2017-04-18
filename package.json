@@ -2,7 +2,7 @@
   "name": "spicery",
   "version": "0.0.1",
   "description": "Runtime type safety for JSON/untyped data.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "mocha --require ts-node/register test/*.ts test/**/*.ts",
     "test:watch": "mocha --require ts-node/register --watch --recursive test/*.ts",
