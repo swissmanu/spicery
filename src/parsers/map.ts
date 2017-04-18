@@ -10,11 +10,9 @@ export const fromMap = <T>(map: ParserInput, key: string, valueParser: ParseFn<T
     throw new ParserError('Map', map);
   }
 
-  const value = map[key];
-
-  if (isNil(value)) {
+if (!(key in map)) {
     throw new ParserError(`Map containing key ${key}`, JSON.stringify(map));
   }
 
-  return valueParser(value);
+  return valueParser(map[key]);
 };
