@@ -10,6 +10,7 @@
         "declaration": true
     },
     "exclude": [
+        "build",
         "node_modules",
         "examples",
         "test"
