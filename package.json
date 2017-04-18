@@ -11,7 +11,7 @@
     "docs": "typedoc --out docs/ ./src",
     "example:simple": "ts-node examples/simple.ts",
     "example:complex": "ts-node examples/complex.ts",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "npm run docs && semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
