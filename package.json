@@ -1,6 +1,6 @@
 {
   "name": "spicery",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Runtime type safety for JSON/untyped data.",
   "main": "index.ts",
   "scripts": {
@@ -10,11 +10,12 @@
     "build": "tsc",
     "docs": "typedoc --out docs/ ./src",
     "example:simple": "ts-node examples/simple.ts",
-    "example:complex": "ts-node examples/complex.ts"
+    "example:complex": "ts-node examples/complex.ts",
+    "semantic-release": "yarn run docs && semantic-release pre && yarn publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swissmanu/spicery.git"
+    "url": "https://github.com/swissmanu/spicery.git"
   },
   "keywords": [
     "typescript",
@@ -38,7 +39,8 @@
     "ts-node": "^1.7.2",
     "tslint": "^4.0.2",
     "typedoc": "^0.5.1",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
+    "semantic-release": "^6.3.2"
   },
   "config": {
     "commitizen": {
