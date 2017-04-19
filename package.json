@@ -9,7 +9,7 @@
     "test:watch": "mocha --require ts-node/register --watch --recursive test/*.ts",
     "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
     "build": "tsc",
-    "docs": "typedoc --out docs/ ./src",
+    "docs": "typedoc --out docs/ ./src && touch docs/.nojekyll",
     "example:simple": "ts-node examples/simple.ts",
     "example:complex": "ts-node examples/complex.ts",
     "prepublish": "npm run build",
