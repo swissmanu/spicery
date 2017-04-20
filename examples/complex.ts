@@ -4,6 +4,7 @@ import {aString} from '../src/parsers/string';
 import {aNumber} from '../src/parsers/number';
 import {aBoolean} from '../src/parsers/boolean';
 import {anArrayContaining} from '../src/parsers/array';
+import {aDate} from '../src/parsers/date';
 
 // Run this example using `npm run example:complex`
 
@@ -61,9 +62,6 @@ const likes: ParseFn<Like> = (x) => ({
   name: fromMap(x, 'name', aString),
   since: fromMap(x, 'since', aDate)
 });
-
-const aDate: ParseFn<Date> = x => new Date(x);  // good enough ;)
-
 
 // Apply Parser & Process Data:
 try {
