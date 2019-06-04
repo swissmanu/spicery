@@ -8,3 +8,4 @@ test
 spicery.iml
 tsconfig.json
 tslint.json
+*.log
