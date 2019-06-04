@@ -1,18 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es6",
-        "noImplicitAny": true,
-        "noUnusedParameters": true,
-        "noUnusedLocals": true,
-        "sourceMap": false,
-        "outDir": "build/",
-        "declaration": true
-    },
-    "exclude": [
-        "build",
-        "node_modules",
-        "examples",
-        "test"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "sourceMap": false,
+    "outDir": "build/",
+    "declaration": true,
+    "declarationMap": true
+  },
+  "exclude": ["build", "node_modules", "examples", "test"]
 }

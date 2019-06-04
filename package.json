@@ -5,15 +5,17 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
-    "test": "mocha --require ts-node/register test/*.ts test/**/*.ts",
-    "test:watch": "mocha --require ts-node/register --watch --recursive test/*.ts",
-    "lint": "tslint ./src/**/*.ts ./test/**/*.ts",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "lint": "yarn lint:selective --project tsconfig.json",
+    "lint:selective": "tslint --format stylish --config tslint.json",
+    "pretty": "prettier --write",
     "build": "tsc",
     "docs": "typedoc --out docs/ ./src && touch docs/.nojekyll",
     "example:simple": "ts-node examples/simple.ts",
     "example:complex": "ts-node examples/complex.ts",
-    "prepublish": "npm run build",
-    "semantic-release": "npm run docs && semantic-release pre && npm publish && semantic-release post"
+    "prepublish": "yarn build",
+    "semantic-release": "yarn docs && semantic-release pre && yarn publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -33,20 +35,54 @@
   },
   "homepage": "https://github.com/swissmanu/spicery#readme",
   "devDependencies": {
-    "@types/chai": "^3.4.34",
-    "@types/mocha": "^2.2.33",
-    "chai": "^3.5.0",
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.4",
     "cz-conventional-changelog": "^2.0.0",
-    "mocha": "^3.2.0",
-    "ts-node": "^1.7.2",
-    "tslint": "^4.0.2",
-    "typedoc": "^0.5.1",
-    "typescript": "^2.1.4",
-    "semantic-release": "^6.3.2"
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "semantic-release": "^6.3.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.2.0",
+    "tslint": "^5.17.0",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testMatch": [
+      "**/test/**/*.ts"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.ts": [
+      "yarn pretty",
+      "yarn lint:selective",
+      "git add"
+    ],
+    "*.json": [
+      "yarn pretty",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test"
     }
   }
 }

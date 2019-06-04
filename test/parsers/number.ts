@@ -1,41 +1,40 @@
-import {expect} from 'chai';
-import {aNumber, numbers} from '../../src/parsers/number';
-import {ParserError} from '../../src/parsers';
+import { aNumber, numbers } from '../../src/parsers/number';
+import { ParserError } from '../../src/parsers';
 
 describe('Parser', () => {
   describe('aNumber', () => {
     it('should return type number given a number', () => {
-      expect(aNumber(1)).to.be.a('number');
+      expect(typeof aNumber(1)).toBe('number');
     });
 
     it('should return given number', () => {
-      expect(aNumber(42)).is.eql(42);
+      expect(aNumber(42)).toEqual(42);
     });
 
     it('should throw a ParserError when given null', () => {
-      expect(() => aNumber(null)).to.throw(ParserError);
+      expect(() => aNumber(null)).toThrow(ParserError);
     });
 
     it('should throw a ParserError when given undefined', () => {
-      expect(() => aNumber(undefined)).to.throw(ParserError);
+      expect(() => aNumber(undefined)).toThrow(ParserError);
     });
 
     it('should throw a ParserError when given a boolean', () => {
-      expect(() => aNumber(false)).to.throw(ParserError);
+      expect(() => aNumber(false)).toThrow(ParserError);
     });
 
     it('should throw a ParserError when given a string', () => {
-      expect(() => aNumber('test')).to.throw(ParserError);
+      expect(() => aNumber('test')).toThrow(ParserError);
     });
 
     it('should throw a ParserError when given an object', () => {
-      expect(() => aNumber({})).to.throw(ParserError);
+      expect(() => aNumber({})).toThrow(ParserError);
     });
   });
 
   describe('numbers', () => {
     it('should be a synonym for aNumber', () => {
-      expect(numbers).to.be.equal(aNumber);
+      expect(numbers).toBe(aNumber);
     });
   });
 });

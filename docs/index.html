@@ -71,11 +71,11 @@
 				<p><a href="https://www.typescriptlang.org/">TypeScript</a> gives you compile-time type safety for your JavaScript code. External data which you get through, for example, XHR calls is only checkable at runtime. <code>spicery</code> allows you to handle runtime checks in one place using an easy to use API.</p>
 				<p><a href="https://badge.fury.io/js/spicery"><img src="https://badge.fury.io/js/spicery.svg" alt="npm version"></a> <a href="https://travis-ci.org/swissmanu/spicery"><img src="https://travis-ci.org/swissmanu/spicery.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a> <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly"></a></p>
 				<h2 id="examples">Examples</h2>
-				<pre><code class="lang-typescript"><span class="hljs-comment">// You know TypeScript Interfaces:</span>
+				<pre><code class="language-typescript"><span class="hljs-comment">// You know TypeScript Interfaces:</span>
 <span class="hljs-keyword">interface</span> Todo { userId: <span class="hljs-built_in">number</span>; id: <span class="hljs-built_in">number</span>; title: <span class="hljs-built_in">string</span>; completed: <span class="hljs-built_in">boolean</span>; }
 
 <span class="hljs-comment">// This is new: Define a Todo Parser with spicery:</span>
-<span class="hljs-keyword">const</span> todos: ParserFn&lt;Todo&gt; = x =&gt; ({
+<span class="hljs-keyword">const</span> todos: ParserFn&lt;Todo&gt; = <span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> ({
   userId:    fromMap(x, <span class="hljs-string">'userId'</span>, aNumber),
   id:        fromMap(x, <span class="hljs-string">'id'</span>, aNumber),
   title:     fromMap(x, <span class="hljs-string">'title'</span>, aString),
@@ -87,14 +87,12 @@
 
 <span class="hljs-comment">// Fetch Todos and parse them:</span>
 <span class="hljs-built_in">window</span>.fetch(<span class="hljs-string">'https://jsonplaceholder.typicode.com/todos'</span>)
-  .then(r =&gt; parse(jsonPlaceholderTodos)(r.body))
-  .then(t =&gt; <span class="hljs-built_in">console</span>.log(t))
-</code></pre>
+  .then(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> parse(jsonPlaceholderTodos)(r.body))
+  .then(<span class="hljs-function"><span class="hljs-params">t</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(t))</code></pre>
 				<p>For further examples refer to the <code>examples/</code> directory. To execute them locally, clone this repository and run following commands on your command line of choice:</p>
-				<pre><code class="lang-bash">yarn
+				<pre><code class="language-bash">yarn
 yarn run example:simple
-yarn run example:complex
-</code></pre>
+yarn run example:complex</code></pre>
 				<p><em>Though the first <code>yarn</code> command is only used to install any module dependencies once</em> 🤓</p>
 				<h2 id="contribution">Contribution</h2>
 				<p>The <code>master</code> branch contains the latest stable release.
