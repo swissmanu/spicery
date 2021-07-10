@@ -1,6 +1,6 @@
 import { ParseFn, ParserError } from "../../src/parsers";
 import aBoolean from "../../src/parsers/boolean";
-import fromObject from "../../src/parsers/object";
+import fromObject from "../../src/parsers/fromObject";
 
 describe("Parser", () => {
   describe("fromObject", () => {
