@@ -1,15 +1,15 @@
-import {ParserError, ParserInput, ParseFn} from './index';
-import {isNil} from '../util';
+import { isNil } from "../util";
+import { ParseFn, ParserError, ParserInput } from "./index";
 
-export const aNumber: ParseFn<number> = (x: ParserInput): number => {
+const aNumber: ParseFn<number> = (x: ParserInput): number => {
   if (isNil(x)) {
-    throw new ParserError('number', x);
+    throw new ParserError("number", x);
   }
 
-  if (typeof x === 'number') {
+  if (typeof x === "number") {
     return x;
   }
-  throw new ParserError('number', typeof x);
+  throw new ParserError("number", typeof x);
 };
 
-export const numbers = aNumber;
+export default aNumber;

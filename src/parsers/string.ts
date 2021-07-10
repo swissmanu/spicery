@@ -1,15 +1,15 @@
-import {ParserError, ParserInput, ParseFn} from './index';
-import {isNil} from '../util';
+import { isNil } from "../util";
+import { ParseFn, ParserError, ParserInput } from "./index";
 
-export const aString: ParseFn<string> = (x: ParserInput): string => {
+const aString: ParseFn<string> = (x: ParserInput): string => {
   if (isNil(x)) {
-    throw new ParserError('string', x);
+    throw new ParserError("string", x);
   }
 
-  if (typeof x === 'string') {
+  if (typeof x === "string") {
     return x;
   }
-  throw new ParserError('string', typeof x);
+  throw new ParserError("string", typeof x);
 };
 
-export const strings = aString;
+export default aString;

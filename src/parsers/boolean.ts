@@ -1,15 +1,15 @@
-import {ParserError, ParserInput, ParseFn} from './index';
-import {isNil} from '../util';
+import { isNil } from "../util";
+import { ParseFn, ParserError, ParserInput } from "./index";
 
-export const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
+const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   if (isNil(x)) {
-    throw new ParserError('boolean', x);
+    throw new ParserError("boolean", x);
   }
 
-  if (typeof x === 'boolean') {
+  if (typeof x === "boolean") {
     return x;
   }
-  throw new ParserError('boolean', typeof x);
+  throw new ParserError("boolean", typeof x);
 };
 
-export const booleans = aBoolean;
+export default aBoolean;

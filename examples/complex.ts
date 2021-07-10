@@ -1,10 +1,10 @@
-import {ParseFn, parse} from '../src/parsers';
-import {fromMap} from '../src/parsers/map';
-import {aString} from '../src/parsers/string';
-import {aNumber} from '../src/parsers/number';
-import {aBoolean} from '../src/parsers/boolean';
-import {anArrayContaining} from '../src/parsers/array';
-import {aDate} from '../src/parsers/date';
+import { parse, ParseFn } from "../src/parsers";
+import anArrayContaining from "../src/parsers/array";
+import aBoolean from "../src/parsers/boolean";
+import aDate from "../src/parsers/date";
+import fromMap from "../src/parsers/map";
+import aNumber from "../src/parsers/number";
+import aString from "../src/parsers/string";
 
 // Run this example using `npm run example:complex`
 
@@ -12,37 +12,31 @@ import {aDate} from '../src/parsers/date';
 // etc. and rerun the example.
 const untypedInformation: any = [
   {
-    "name": "Alice",
-    "age": 25,
-    "blocked": false,
-    "likes": [
+    name: "Alice",
+    age: 25,
+    blocked: false,
+    likes: [
       { name: "Apples", since: "2016-02-25T08:10:43.511Z" },
-      { name: "Pears", since: "2015-05-11T10:20:42.511Z" }
-    ]
+      { name: "Pears", since: "2015-05-11T10:20:42.511Z" },
+    ],
   },
   {
-    "name": "Bob",
-    "age": 22,
-    "blocked": false,
-    "likes": []
+    name: "Bob",
+    age: 22,
+    blocked: false,
+    likes: [],
   },
   {
-    "name": "Mallory",
-    "age": 25,
-    "blocked": true,
-    "likes": [{ name: "Garlic", since: "2014-01-23T18:10:43.511Z" }]
-  }
+    name: "Mallory",
+    age: 25,
+    blocked: true,
+    likes: [{ name: "Garlic", since: "2014-01-23T18:10:43.511Z" }],
+  },
 ];
-
 
 // Type Definitions:
 class Friend {
-  constructor(
-    public name: string,
-    public age: number,
-    public blocked: boolean,
-    public likes: Like[]
-  ) {}
+  constructor(public name: string, public age: number, public blocked: boolean, public likes: Like[]) {}
 }
 
 interface Like {
@@ -51,27 +45,27 @@ interface Like {
 }
 
 // Parsers for Type Definitions:
-const friends: ParseFn<Friend> = (x) => new Friend(
-  fromMap(x, 'name', aString),
-  fromMap(x, 'age', aNumber),
-  fromMap(x, 'blocked', aBoolean),
-  fromMap(x, 'likes', anArrayContaining(likes))
-);
+const friends: ParseFn<Friend> = (x) =>
+  new Friend(
+    fromMap(x, "name", aString),
+    fromMap(x, "age", aNumber),
+    fromMap(x, "blocked", aBoolean),
+    fromMap(x, "likes", anArrayContaining(likes))
+  );
 
 const likes: ParseFn<Like> = (x) => ({
-  name: fromMap(x, 'name', aString),
-  since: fromMap(x, 'since', aDate)
+  name: fromMap(x, "name", aString),
+  since: fromMap(x, "since", aDate),
 });
 
 // Apply Parser & Process Data:
 try {
   parse(anArrayContaining(friends))(untypedInformation)
-    .map(f => {
-      const likes = f.likes.reduce(
-        (p, l) => `${p}${l.name} since ${l.since.toLocaleDateString()}, `, '');
-      return `${f.name} likes ${likes.length > 0 ? likes : 'nothing,'}`;
+    .map((f) => {
+      const likes = f.likes.reduce((p, l) => `${p}${l.name} since ${l.since.toLocaleDateString()}, `, "");
+      return `${f.name} likes ${likes.length > 0 ? likes : "nothing,"}`;
     })
-    .forEach(s => console.log(s));
+    .forEach((s) => console.log(s));
 } catch (e) {
   console.error(e);
 }
