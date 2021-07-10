@@ -6,7 +6,7 @@
     "noUnusedParameters": true,
     "noUnusedLocals": true,
     "sourceMap": false,
-    "outDir": "build/",
+    "outDir": "build",
     "declaration": true,
     "declarationMap": true
   },

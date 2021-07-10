@@ -1,7 +1,8 @@
-import {ParserError, ParseFn, ParserInput} from './index';
-import {isNil} from '../util';
+import { ParserError, ParseFn, ParserInput } from './index';
+import { isNil } from '../util';
 
-export const anArrayContaining = <T>(itemParser: ParseFn<T>): ParseFn<T[]> =>
+export const anArrayContaining =
+  <T>(itemParser: ParseFn<T>): ParseFn<T[]> =>
   (x: ParserInput): T[] => {
     if (isNil(x)) {
       throw new ParserError('Array', x);

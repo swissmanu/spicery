@@ -5,17 +5,16 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {
+    "prepare": "husky install",
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "lint": "yarn lint:selective --project tsconfig.json",
-    "lint:selective": "tslint --format stylish --config tslint.json",
+    "lint": "yarn lint:selective src",
+    "lint:selective": "eslint",
     "pretty": "prettier --write",
     "build": "tsc",
     "docs": "typedoc --out docs/ ./src && touch docs/.nojekyll",
     "example:simple": "ts-node examples/simple.ts",
-    "example:complex": "ts-node examples/complex.ts",
-    "prepublish": "yarn build",
-    "semantic-release": "yarn docs && semantic-release pre && yarn publish && semantic-release post"
+    "example:complex": "ts-node examples/complex.ts"
   },
   "repository": {
     "type": "git",
@@ -35,19 +34,21 @@
   },
   "homepage": "https://github.com/swissmanu/spicery#readme",
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.4",
-    "cz-conventional-changelog": "^2.0.0",
-    "husky": "^2.3.0",
-    "jest": "^24.8.0",
-    "lint-staged": "^8.1.7",
-    "prettier": "^1.17.1",
-    "semantic-release": "^6.3.2",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.2.0",
-    "tslint": "^5.17.0",
-    "typedoc": "^0.14.2",
-    "typescript": "^3.5.1"
+    "@types/jest": "26.0.24",
+    "@types/node": "12.0.4",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.30.0",
+    "husky": "7.0.1",
+    "jest": "27.0.6",
+    "lint-staged": "11.0.0",
+    "prettier": "2.3.2",
+    "semantic-release": "17.4.4",
+    "ts-jest": "27.0.3",
+    "ts-node": "10.0.0",
+    "typedoc": "0.21.2",
+    "typescript": "4.3.5"
   },
   "config": {
     "commitizen": {
@@ -65,24 +66,15 @@
     ]
   },
   "prettier": {
-    "printWidth": 120,
-    "singleQuote": true
+    "printWidth": 120
   },
   "lint-staged": {
     "*.ts": [
       "yarn pretty",
-      "yarn lint:selective",
-      "git add"
+      "yarn lint:selective"
     ],
-    "*.json": [
-      "yarn pretty",
-      "git add"
+    "*.{js,json}": [
+      "yarn pretty"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn test"
-    }
   }
 }
