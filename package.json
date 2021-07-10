@@ -14,9 +14,7 @@
     "build": "tsc",
     "docs": "typedoc --out docs/ ./src && touch docs/.nojekyll",
     "example:simple": "ts-node examples/simple.ts",
-    "example:complex": "ts-node examples/complex.ts",
-    "prepublish": "yarn build",
-    "semantic-release": "yarn docs && semantic-release pre && yarn publish && semantic-release post"
+    "example:complex": "ts-node examples/complex.ts"
   },
   "repository": {
     "type": "git",
@@ -68,8 +66,7 @@
     ]
   },
   "prettier": {
-    "printWidth": 120,
-    "singleQuote": true
+    "printWidth": 120
   },
   "lint-staged": {
     "*.ts": [
