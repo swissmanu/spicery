@@ -2,8 +2,17 @@
   "name": "spicery",
   "version": "2.0.1",
   "description": "Runtime type safety for JSON/untyped data.",
+  "author": "Manuel Alabor <manuel@alabor.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/swissmanu/spicery/issues"
+  },
+  "homepage": "https://github.com/swissmanu/spicery#readme",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "prepare": "husky install",
     "test": "jest",
@@ -28,12 +37,6 @@
     "typesafety",
     "api"
   ],
-  "author": "Manuel Alabor <manuel@alabor.me>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/swissmanu/spicery/issues"
-  },
-  "homepage": "https://github.com/swissmanu/spicery#readme",
   "devDependencies": {
     "@types/jest": "26.0.24",
     "@types/node": "12.0.4",
