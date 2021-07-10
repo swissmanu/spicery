@@ -14,7 +14,8 @@
     "build": "tsc",
     "docs": "typedoc --out docs/ ./src && touch docs/.nojekyll",
     "example:simple": "ts-node examples/simple.ts",
-    "example:complex": "ts-node examples/complex.ts"
+    "example:complex": "ts-node examples/complex.ts",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
