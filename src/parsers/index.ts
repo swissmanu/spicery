@@ -1,3 +1,13 @@
+import anArrayContaining from "./array";
+import aBoolean from "./boolean";
+import aDate from "./date";
+import fromObject from "./fromObject";
+import aNumber from "./number";
+import aString from "./string";
+import withObject from "./withObject";
+
+export { anArrayContaining, aBoolean, aDate, fromObject, aNumber, aString, withObject };
+
 /**
  * A `ParseInput` can be transformed using a `ParseFn`.
  */
@@ -13,10 +23,7 @@ export type ParseFn<T> = (x: ParserInput) => T;
  * A `ParseFn` throws a `ParseError` when the `ParseInput` cannot be transformed to the parsers target type.
  */
 export class ParserError extends Error {
-  constructor(
-    public readonly expected: string,
-    public readonly found: string
-  ) {
+  constructor(public readonly expected: string, public readonly found: string) {
     super(`Expected ${expected} but found ${found}`);
   }
 }
@@ -25,4 +32,7 @@ export class ParserError extends Error {
  * Syntactic sugar to lazy invoke a `ParseFn`; Creates a new `ParseFn` with given parser and returns it for later
  * invocation.
  */
-export const parse = <T>(parser: ParseFn<T>): ParseFn<T> => (x) => parser(x);
+export const parse =
+  <T>(parser: ParseFn<T>): ParseFn<T> =>
+  (x) =>
+    parser(x);
