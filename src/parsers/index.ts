@@ -2,11 +2,13 @@ import anArrayContaining from "./array";
 import aBoolean from "./boolean";
 import aDate from "./date";
 import fromObject from "./fromObject";
+import aNull from "./null";
 import aNumber from "./number";
+import or from "./or";
 import aString from "./string";
 import withObject from "./withObject";
 
-export { anArrayContaining, aBoolean, aDate, fromObject, aNumber, aString, withObject };
+export { anArrayContaining, aBoolean, aDate, fromObject, aNumber, aString, withObject, aNull, or };
 
 /**
  * A `ParseInput` can be transformed using a `ParseFn`.
