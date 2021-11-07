@@ -1,5 +1,4 @@
-import { ParserError } from "../../src/parsers";
-import aBoolean from "../../src/parsers/boolean";
+import { aBoolean, ParserError } from "../../src";
 
 describe("Parser", () => {
   describe("aBoolean", () => {

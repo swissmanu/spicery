@@ -1,5 +1,6 @@
+import ParserError from "../parserError";
+import { ParseFn, ParserInput } from "../parserFn";
 import { isNil } from "../util";
-import { ParseFn, ParserError, ParserInput } from "./index";
 
 const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   if (isNil(x)) {

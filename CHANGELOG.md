@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.2
+- Resolve Cyclic Dependencies
+
 ## 2.1.1
 - Remove `any` type and use `unknown` wherever possible
 - Improve `withObject` and `fromObject` type signatures

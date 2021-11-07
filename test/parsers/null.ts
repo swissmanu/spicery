@@ -1,5 +1,4 @@
-import { ParserError } from "../../src/parsers";
-import aNull from "../../src/parsers/null";
+import { aNull, ParserError } from "../../src";
 
 describe("Parser", () => {
   describe("aNull", () => {

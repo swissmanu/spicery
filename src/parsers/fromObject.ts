@@ -1,5 +1,6 @@
+import ParserError from "../parserError";
+import { ParseFn, ParserInput } from "../parserFn";
 import { isNil } from "../util";
-import { ParseFn, ParserError, ParserInput } from "./index";
 
 const fromObject = <T, O extends Record<string, ParserInput> = Record<string, ParserInput>>(
   object: O,
