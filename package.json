@@ -1,6 +1,6 @@
 {
   "name": "spicery",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Runtime type safety for JSON/untyped data.",
   "author": "Manuel Alabor <manuel@alabor.me>",
   "license": "MIT",
