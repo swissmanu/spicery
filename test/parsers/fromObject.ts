@@ -1,6 +1,4 @@
-import { ParseFn, ParserError } from "../../src/parsers";
-import aBoolean from "../../src/parsers/boolean";
-import fromObject from "../../src/parsers/fromObject";
+import { aBoolean, fromObject, ParseFn, ParserError } from "../../src";
 
 describe("Parser", () => {
   describe("fromObject", () => {

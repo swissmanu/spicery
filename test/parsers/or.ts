@@ -1,4 +1,4 @@
-import or from "../../src/parsers/or";
+import { or } from "../../src";
 
 describe("Parser", () => {
   describe("or", () => {

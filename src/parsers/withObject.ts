@@ -1,4 +1,5 @@
-import { ParseFn, ParserError, ParserInput } from ".";
+import ParserError from "../parserError";
+import { ParseFn, ParserInput } from "../parserFn";
 import { isNil } from "../util";
 
 /**

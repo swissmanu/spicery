@@ -1,5 +1,4 @@
-import { ParserError } from "../../src/parsers";
-import withObject from "../../src/parsers/withObject";
+import { ParserError, withObject } from "../../src";
 
 describe("Parser", () => {
   describe("withObject()", () => {

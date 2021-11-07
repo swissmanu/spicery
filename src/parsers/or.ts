@@ -1,4 +1,4 @@
-import { ParseFn } from ".";
+import { ParseFn } from "../parserFn";
 
 export default function or<A, B>(parseA: ParseFn<A>, parseB: ParseFn<B>): ParseFn<A | B> {
   return (x) => {

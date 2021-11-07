@@ -1,14 +1,14 @@
-import { ParseFn, parse } from '../../src/parsers';
+import { parse, ParseFn } from "../../src";
 
-describe('Parser', () => {
-  describe('parse', () => {
-    it('should apply given parser to given input', done => {
-      const parser: ParseFn<string> = x => {
-        expect(x).toEqual('test');
+describe("Parser", () => {
+  describe("parse", () => {
+    it("should apply given parser to given input", (done) => {
+      const parser: ParseFn<string> = (x) => {
+        expect(x).toEqual("test");
         done();
-        return '';
+        return "";
       };
-      parse(parser)('test');
+      parse(parser)("test");
     });
   });
 });

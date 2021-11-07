@@ -1,5 +1,4 @@
-import { ParserError } from "../../src/parsers";
-import aNumber from "../../src/parsers/number";
+import { aNumber, ParserError } from "../../src";
 
 describe("Parser", () => {
   describe("aNumber", () => {

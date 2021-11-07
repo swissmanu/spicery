@@ -1,4 +1,5 @@
-import { ParseFn, ParserError } from ".";
+import ParserError from "../parserError";
+import { ParseFn } from "../parserFn";
 
 const aNull: ParseFn<null> = (x) => {
   if (x === null) {

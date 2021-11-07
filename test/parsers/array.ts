@@ -1,6 +1,4 @@
-import { ParserError } from "../../src/parsers";
-import anArrayContaining from "../../src/parsers/array";
-import aString from "../../src/parsers/string";
+import { anArrayContaining, aString, ParserError } from "../../src";
 
 describe("Parser", () => {
   describe("anArrayContaining", () => {
