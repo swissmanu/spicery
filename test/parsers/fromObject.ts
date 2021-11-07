@@ -9,7 +9,7 @@ describe("Parser", () => {
     });
 
     it("should throw a ParserError when given object does not contain key", () => {
-      expect(() => fromObject({ b: false }, "a", aBoolean)).toThrow(ParserError);
+      expect(() => fromObject({ b: false }, "a" as never, aBoolean)).toThrow(ParserError);
     });
 
     it("should throw a ParserError when given value parser fails", () => {
@@ -25,11 +25,11 @@ describe("Parser", () => {
     });
 
     it("should throw a ParserError when given a number", () => {
-      expect(() => fromObject(1, "a", aBoolean)).toThrow(ParserError);
+      expect(() => fromObject(1 as never, "a", aBoolean)).toThrow(ParserError);
     });
 
     it("should throw a ParserError when given a string", () => {
-      expect(() => fromObject("test", "a", aBoolean)).toThrow(ParserError);
+      expect(() => fromObject("test" as never, "a", aBoolean)).toThrow(ParserError);
     });
 
     it('should not throw ParserError when given key exists and has value "null"', () => {

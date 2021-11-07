@@ -5,7 +5,7 @@ const anArrayContaining =
   <T>(itemParser: ParseFn<T>): ParseFn<T[]> =>
   (x: ParserInput): T[] => {
     if (isNil(x)) {
-      throw new ParserError("Array", x);
+      throw new ParserError("Array", `${x}`);
     }
 
     if (Array.isArray(x)) {
