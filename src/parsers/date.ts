@@ -3,7 +3,7 @@ import { ParseFn, ParserError, ParserInput } from "./index";
 
 const aDate: ParseFn<Date> = (x: ParserInput): Date => {
   if (isNil(x)) {
-    throw new ParserError("date", x);
+    throw new ParserError("date", `${x}`);
   }
 
   if (x instanceof Date) {

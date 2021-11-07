@@ -1,13 +1,17 @@
 import { isNil } from "../util";
 import { ParseFn, ParserError, ParserInput } from "./index";
 
-const fromObject = <T>(object: ParserInput, key: string, valueParser: ParseFn<T>): T => {
+const fromObject = <T, O extends Record<string, ParserInput> = Record<string, ParserInput>>(
+  object: O,
+  key: keyof O,
+  valueParser: ParseFn<T>
+): T => {
   if (isNil(object)) {
-    throw new ParserError("Object", object);
+    throw new ParserError("Object", `${object}`);
   }
 
   if (typeof object !== "object") {
-    throw new ParserError("Object", object);
+    throw new ParserError("Object", `${object}`);
   }
 
   if (!(key in object)) {

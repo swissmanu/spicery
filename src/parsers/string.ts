@@ -3,7 +3,7 @@ import { ParseFn, ParserError, ParserInput } from "./index";
 
 const aString: ParseFn<string> = (x: ParserInput): string => {
   if (isNil(x)) {
-    throw new ParserError("string", x);
+    throw new ParserError("string", `${x}`);
   }
 
   if (typeof x === "string") {

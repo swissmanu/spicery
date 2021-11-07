@@ -6,7 +6,7 @@ import strings from "../src/parsers/string";
 
 // Try to alter the content of this array. Put booleans, numbers, nested arrays
 // etc. and rerun the example.
-const untypedInformation: any = ["Apples", "Pears", "Peaches"];
+const untypedInformation: unknown = ["Apples", "Pears", "Peaches"];
 
 try {
   const fruits: string[] = parse(anArrayContaining(strings))(untypedInformation);

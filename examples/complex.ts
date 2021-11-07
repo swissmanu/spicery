@@ -1,8 +1,8 @@
-import { parse, ParseFn } from "../src/parsers";
+import { parse, ParseFn, withObject } from "../src/parsers";
 import anArrayContaining from "../src/parsers/array";
 import aBoolean from "../src/parsers/boolean";
 import aDate from "../src/parsers/date";
-import fromMap from "../src/parsers/map";
+import fromObject from "../src/parsers/fromObject";
 import aNumber from "../src/parsers/number";
 import aString from "../src/parsers/string";
 
@@ -10,7 +10,7 @@ import aString from "../src/parsers/string";
 
 // Try to alter the content of this array. Put booleans, numbers, nested arrays
 // etc. and rerun the example.
-const untypedInformation: any = [
+const untypedInformation: unknown = [
   {
     name: "Alice",
     age: 25,
@@ -45,18 +45,20 @@ interface Like {
 }
 
 // Parsers for Type Definitions:
-const friends: ParseFn<Friend> = (x) =>
-  new Friend(
-    fromMap(x, "name", aString),
-    fromMap(x, "age", aNumber),
-    fromMap(x, "blocked", aBoolean),
-    fromMap(x, "likes", anArrayContaining(likes))
-  );
+const friends: ParseFn<Friend> = withObject(
+  (x) =>
+    new Friend(
+      fromObject(x, "name", aString),
+      fromObject(x, "age", aNumber),
+      fromObject(x, "blocked", aBoolean),
+      fromObject(x, "likes", anArrayContaining(likes))
+    )
+);
 
-const likes: ParseFn<Like> = (x) => ({
-  name: fromMap(x, "name", aString),
-  since: fromMap(x, "since", aDate),
-});
+const likes: ParseFn<Like> = withObject((x) => ({
+  name: fromObject(x, "name", aString),
+  since: fromObject(x, "since", aDate),
+}));
 
 // Apply Parser & Process Data:
 try {

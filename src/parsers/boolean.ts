@@ -3,7 +3,7 @@ import { ParseFn, ParserError, ParserInput } from "./index";
 
 const aBoolean: ParseFn<boolean> = (x: ParserInput): boolean => {
   if (isNil(x)) {
-    throw new ParserError("boolean", x);
+    throw new ParserError("boolean", `${x}`);
   }
 
   if (typeof x === "boolean") {
